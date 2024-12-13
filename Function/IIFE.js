@@ -48,3 +48,56 @@ console.log("Old Private Key: ", findKey.getKey());
 findKey.setKey("update our data");
 console.log("New Private Key is: ", findKey.getKey());
 
+// useEffect(()=> {
+//   (){
+//     const api = url;
+//     fetch(api).then((response)=> response.json()).then((data)=>{
+//       console.log(data);
+//     })
+//   }();
+// }, []);
+
+var message = "Hello, IIFE!";
+console.log(message);
+
+(function abc() {
+  console.log(Hello )
+})()
+
+for(var i = 0; i<5; i++){
+  setTimeout(()=>{
+      console.log(i);
+  }, i*1000);
+};
+//
+for(var i = 0; i<5; i++){
+  setTimeout(()=>{
+      console.log(i);
+  }, i*1000);
+};
+
+for(var i=0; i<5; i++){
+  (setTimeout(()=>{
+    console.log(i);
+}, i*1000))()
+}
+
+//IIFE
+//
+function abc(x){
+console.log(x);
+}
+abc(()=> {
+  var x = 10;
+  return x;
+});
+let array = [1, 2, 4, 5, 6] * 2;
+map, fillter, reduce, ==> callback function
+array.map((item, index, array)=> {
+  console.log(item);
+  //opration
+  return item * 2;
+});//new Array
+
+
+

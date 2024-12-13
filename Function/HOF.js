@@ -1,5 +1,5 @@
 /**
- * Defination:=> A function that Takes a Function as a argument and also we can return a function callesd higher Order Function
+ * Defination:=> A function that Takes a Function as a argument and also we can return a function called higher Order Function
  * Example:=> Array.filter, Array.sort(), Array.map(), Array.reduce() etc 
  * task: Create a Calculator that takes Two argument first is function and second is array
  */

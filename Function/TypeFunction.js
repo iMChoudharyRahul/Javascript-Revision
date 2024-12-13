@@ -6,15 +6,27 @@
 
 //function Declaration
 function printMsg() {
+  //a+b ==> 6
   console.log("Hello this our fist first function Declaration");
+  // console.table(["Hello this our fist first function Declaration"]);
+  // console.warn(["Hello this our fist first function Declaration"]);
+  // console.error(["Hello this our fist first function Declaration"]);
 }
 printMsg();
 
 //function  expression
-let printOurMsg = function () {
+let printOurMsg = function (a='', b="", c="abc") {
   console.log("Hello this our function Anonymous");
 };
-printOurMsg();
+let array = [1,2,4]
+1 == "true" --> 1 == 1 ||true, { 0 --> false, 1--> true }
+printOurMsg(array);//1,2,4
+//arrow function
+// let printOurMsg = () => {
+//   console.log("Hello this our function Anonymous");
+// };
+
+// printOurMsg();
 
 //Calculate  the fectorial
 let factorial = function fac(n) {

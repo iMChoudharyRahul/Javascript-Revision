@@ -21,7 +21,7 @@ const Product = {
 // Use 'call' to calculate the total price with custom context and arguments
 const customProduct = {
   name: "IPhone 14 plus",
-  price: 60000
+  price: 60000,
 }
 
 //we don't need to write again and calculateTotal using Call  
@@ -35,6 +35,15 @@ const customPrice = Product.calculateTotal.apply(customProduct, [2, 0.1]);
 console.log(`Total for ${customProduct.name}: $${customPrice} using apply method`);
 
 //Using Bind Method
-const useBind = Product.calculateTotal.bind(customProduct, 2, 0.1);
-let total = useBind();
+const useBind = Product.calculateTotal.bind(customProduct);
+let total = useBind(2, 0.1);
 console.log(`Total for ${customProduct.name}: $${total} using bind method`);
+
+
+//Call(this, argumets)--> product.call(cutomProduct, 2, 1) 
+//Apply --> (this, [2, 1]);
+//bind --> (this) --> variable(argument)
+
+//call by value   vs call by reference
+function(a=1, b=4, c=5) --> function value change(a=4, b=5, c=6)  will not affect outside of it
+function(object, array) --> refereance --> function  change --> actual object and array ushme bhi update hoga

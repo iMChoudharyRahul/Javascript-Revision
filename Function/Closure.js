@@ -39,4 +39,21 @@ function createAccount(initialBalance) {
   account2.deposit(300);
   account2.withdraw(700);
   console.log(`Account 2 balance: $${account2.getBalance()}`);
-  
+  //globel scop 
+let hello = "world";
+  function main(){ //braces scop
+    let a = 4;
+    
+       function child1(){
+///
+      console.log('Child Function 1', hello); //4
+    }
+  }
+  console.log(a);
+
+  function main01(){
+    let a = 4;
+    function child1(){
+      console.log('Child Function 1', a); //4
+    }
+  }
