@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Dom Element</title>
+</head>
+<body style="background-color: #212121; color: #ffff;">
+
+    <!-- Edit and Remove Element  -->
+    <ul class="language">
+        <li>Javascript</li>
+    </ul>
+    
+</body>
+<script>
+    // Create a Div
+    const div  = document.createElement("div");
+    console.log(div);
+    //add Class and Id 
+    div.className = "first-div";
+    div.id = Math.round( Math.random() * 10 + 1);
+    // Simple way to add all atribute
+    div.setAttribute("title", "create titile");
+    div.style.backgroundColor = "green";
+    div.padding = "18px";
+    // Add Content on div
+    // div.innerText = "First Div Element";
+             //OR {most use}
+     const addText = document.createTextNode("Hello This Is our First Element On Screen");
+     //add content on div
+     div.appendChild(addText);
+      //add div to body 
+     document.body.appendChild(div);
+
+// ----------------------------------------------------------------------
+     //M01 BruteForce For Small Application
+      function addLanguage (langName){
+        const li = document.createElement('li');
+        li.innerHTML = `${langName}`;
+        document.querySelector(".language").appendChild(li);
+      }
+      addLanguage("phython");
+      addLanguage("Java");
+
+      //For Large Application 
+      function optFunction(langName){
+        const li = document.createElement('li');
+        li.appendChild(document.createTextNode(`${langName}`));
+        document.querySelector(".language").appendChild(li);
+      }
+      optFunction("golang");
+      optFunction("C++");
+
+      //Edit Language
+      const secLang = document.querySelector("li:nth-child(2)");
+    //   secLang.innerHTML = "Django";
+      //or {Create a new node}
+      const newLi = document.createElement("li");
+      newLi.textContent = "Django";
+      secLang.replaceWith(newLi);
+
+       //One More Edit
+       const firstLang = document.querySelector("li:first-child");
+       //Direct Replace full li 
+       firstLang.outerHTML = '<li>TypeScript</li>';
+
+       //Remove
+       const lastLang = document.querySelector('li:last-child');
+       lastLang.remove();
+
+</script> 
+</html>

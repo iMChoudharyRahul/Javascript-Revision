@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning DOM</title>
+</head>
+<body>
+    <h1 id="title" class="heading"><span style="display: none;">Hello! How Are You </span> Rahul Choudhary</h1>
+    <label for="name">password:</label>
+    <input type="password" name="pass">
+    <p class="parm">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+    <p class="parm">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+    <p class="parm">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+
+    <!-- nested child -->
+     <div class="parent">
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thursday</div>
+     </div>
+</body>
+<script>
+    const parent = document.querySelector('.parent');
+    console.log(parent);
+    console.log("Parent Child: ", parent.children);    // HTMLCollection(4) [div.day, div.day, div.day, div.day]0: div.day1: div.day2: div.day3: div.daylength: 4[[Prototype]]: HTMLCollection
+    console.log(parent.children[0]);  //<div class="day">Monday</div>
+    console.log(parent.children[0].innerHTML); //Monday
+    for (let i = 0; i < parent.children.length; i++) {
+        console.log(parent.children[i].innerHTML);
+    }//Monday Tuesday Wednesday Thursday
+
+     console.log("First Child: ", parent.firstElementChild);
+     console.log("Last Child: ", parent.lastElementChild);
+
+    //child Access
+    const childNode = document.querySelector('.day');
+    console.log("First Child Element", childNode); //<div class="day">Monday</div>
+    console.log("Check parent Element: ", childNode.parentElement);
+    console.log("Next Child Node: ", childNode.nextElementSibling); // <div class="day">Tuesday</div>
+    console.log("NODES: ", parent.childNodes);  // NodeList(9) [text, div.day, text, div.day, text, div.day, text, div.day, text]
+    
+</script>
+</html>
