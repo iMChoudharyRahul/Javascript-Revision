@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Events Learning</title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+
+   <script>
+    //   there are many events like -->  onclick, attachEvent, addEventListener, Jquery(onAddEventListener)
+    //example
+    // document.getElementById("owl").onclick = function(){
+    //     alert('Owl clicked'); //this not good idea to use onclick
+    // }
+
+    // document.getElementById("owl").addEventListener("click", function(event){
+    //     console.log("Owl Click by user");
+    //     console.log(event); //we get a event object with multiple properties of event 
+    // }, {capture: false});
+ 
+    //learn About this properties of event object --> Target, currentTarget, srcElement, toElement, type, timeStamp, preventDefault 
+                                        // clientX, clientY, screenX, screenY, altKey, ctrlKey, shiftKey, keyCode...etc
+
+    // --------------------------------------------------------------------------------------------------
+    //Learn about event bubbling and capturing using event propogation -->   
+    // example 
+    // document.getElementById('images').addEventListener('click', function(e){
+    //     console.log("clicked inside the ul");
+    // }, false);  //event Bubbling
+
+    // document.getElementById('images').addEventListener('click', function(e){
+    //     console.log("clicked inside the ul");
+    // }, true);  // Event Capturing
+
+    // document.getElementById('owl').addEventListener('click', function(e){
+    //     console.log("owl clicked");
+    //     e.stopPropagation()
+    // }, false) // Stop event Bubbling  only occur on target element 
+    
+    // document.getElementById('google').addEventListener('click',function(e){
+    //     e.preventDefault(); // stop default navigation 
+    //     e.stopPropagation()
+    //     console.log("google clicked");
+    // }, false);              
+// ------------------------------------------------------------------------------------------------------
+    //  Task is remove the click image 
+    document.querySelector("#images").addEventListener("click", function(e){
+       console.log(e.target.parentNode);
+       //we are only remove img not all ul part we add a check
+       // we can use either tageName or nodeName
+       if (e.target && e.target.nodeName === "IMG"){
+        console.log(e.target.id);
+        var li_element = e.target.parentNode;
+        //we have two ways to remove the img 
+        /*Method 1*/
+        // li_element.parentNode.removeChild(li_element);
+        /*Method 2*/
+        li_element.remove();
+       }
+    })
+   </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TimeOut Events</title>
+</head>
+<body>
+   <div>
+    <h1>Events On Javascript</h1>
+    <button id="stop">Stop Me!</button><br/>
+   </div>
+   <div>
+    <h2>Learning Interval</h2>
+    <button id="start">Start</button>
+    <button id="stop-interval">Stop</button>
+   </div>
+    
+
+    <script>
+        //setTimeout --> two arg ===> first is callback function and second is time 
+        setTimeout(()=> {
+            console.log("Hello World!");
+        }, 2000);
+
+        //Now task is Change the h1 Text
+        const changeText = () => {
+            document.querySelector("h1").innerHTML = "Change The Text Using SetTimeout"
+        }
+       const stopTheEvent = setTimeout(changeText, 3000);
+
+        //Next Task Is we don't want to change the text
+        //clearTimeout --> stop a specific Timeout Function
+        document.getElementById("stop").addEventListener("click", ()=> {
+                clearTimeout(stopTheEvent);
+                console.log("Stop the Change text")
+            });
+    // ---------------------------------------------------------
+    //Learning Interval --> take three arg --> callback fun, time, defaultValue
+    const interval = setInterval(()=> {
+        console.log("Hello Rahul Bhaii Padh Le ")
+    }, 2000);
+
+    // stop this interval 
+    clearInterval(interval);
+
+    //Task is when user click on Start btn then start the interval and when click on stop btn then remove the interval 
+    let startInterval;
+    document.querySelector("#start").addEventListener("click", ()=> {
+      startInterval = setInterval(()=>{
+            console.log("user click the Interval")
+        }, 1000);
+    });
+    document.querySelector('#stop-interval').addEventListener('click',()=>{
+        clearInterval(startInterval);
+        console.log("User Stop the interval")
+    });
+
+    </script>
+</body>
+</html>

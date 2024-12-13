@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Event Bubbling And Capturing</title>
+    <style>
+        .grandParents{
+            border: 2px solid red;
+            padding: 25px;
+            background-color: aqua;
+        }
+        .parents{
+            border: 2px solid yellow;
+            margin: 15px;
+            padding: 25px;
+            background-color: blueviolet;
+        }
+        .child{
+            border: 2px solid green;
+            margin: 15px;
+            padding: 25px;
+            background-color: green;
+        }
+        .child-btn{
+            border: 2px soild white;
+            padding: 4px;
+            margin: 2px;
+            color: black;
+            font-size: medium;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="grandParents">
+        <h2>Dada-Dadi</h2>
+        <div class="parents">
+            <h2>Papa-Mummy</h2>
+            <div class="child">
+                <h2>Rahul-Manish</h2>
+                <button class="child-btn">Click-Me</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        const grandParents = document.querySelector('.grandParents');
+        const parents = document.querySelector(".parents");
+        const childs = document.querySelector(".child");
+        
+    //add eventListener
+    // <element>.addEventListener(<eventName>, 
+    // <callbackFunction>, {capture : boolean});
+     //-------------Event Bubbling--------->
+        // grandParents.addEventListener("click", ()=> {
+        //  console.log("-------->Hello Dada and Dadi<---------");
+        // }, false);
+
+        // parents.addEventListener("click", ()=> {
+        //  console.log("-------->Hello Papa And Mummy<---------");
+        // }, false);
+        
+        // childs.addEventListener("click", ()=> {
+        //  console.log("-------->Hello Rahul And Manish<---------");
+        // }, false);
+
+        // grandParents.addEventListener("click", ()=> {
+        //  console.log("-------->Hello Dada and Dadi<---------");
+        // }, {capture: true});
+
+        // parents.addEventListener("click", ()=> {
+        //  console.log("-------->Hello Papa And Mummy<---------");
+        // }, {capture: true});
+        
+        // childs.addEventListener("click", ()=> {
+        //  console.log("-------->Hello Rahul And Manish<---------");
+        // }, {capture: true});
+
+        grandParents.addEventListener("click", ()=> {
+         console.log("-------->Hello Dada and Dadi<---------");
+         event.stopPropagation()
+        }, {capture: false});
+
+        parents.addEventListener("click", ()=> {
+         console.log("-------->Hello Papa And Mummy<---------");
+         event.stopPropagation()
+        }, {capture: false});
+        
+        childs.addEventListener("click", ()=> {
+         console.log("-------->Hello Rahul And Manish<---------");
+         event.stopPropagation()
+        }, {capture: false});
+
+        // -------------Event Capturing----------->
+        // grandParents.addEventListener("click", (e)=> {
+        //  console.log("-------->GrandParent click<---------");
+        // }, { capture: true });
+
+        // parents.addEventListener("click", (e)=> {
+        //  console.log("-------->Parents click<---------");
+        // }, { capture: true });
+        
+        // childs.addEventListener("click", (e)=> {
+        //  console.log("-------->Childs click<---------");
+        // }, { capture: true });
+
+        //propogation
+        // grandParents.addEventListener("click", (e)=> {
+        //  console.log("-------->GrandParent click<---------");
+        //  event.stopPropagation()
+        // }, true);
+
+        // parents.addEventListener("click", (e)=> {
+        //  console.log("-------->Parents click<---------");
+        // }, true);
+        
+        // childs.addEventListener("click", (e)=> {
+        //  console.log("-------->Childs click<---------");
+        // }, { capture: true });
+    </script>
+</body>
+</html>

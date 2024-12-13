@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--Task is When click on Start btn then genrate random color and click on stop btn stop the color   -->
+    <h1>Random Background color genrator</h1>
+    <button id='start'>Start</button>
+    <button id='stop'>Stop</button><br/>
+
+
+    <script>
+        //generate random hax code function
+        const randomColorGenerator = ()=> {
+            const hax = "0123456789ABCDEF";
+            let color = "#";
+            for(let i=0; i<6; i++){
+             color += hax[Math.floor(Math.random()*16)];
+            }
+            console.log("Check Background Color", color);
+            return color;
+        }
+        //when user click on start btn then generate a random color on background
+        let intervalId;
+        const startChangingColor = () => {
+            //for optimize code 
+            if(!intervalId){
+                intervalId = setInterval(changeBgColor, 1000);
+            }
+
+            function changeBgColor(){
+                document.body.style.backgroundColor = randomColorGenerator();
+            }
+        }
+        //Stop Color Generator
+        const stopColorGenerator = () =>{
+            clearInterval(intervalId)
+            intervalId = null;
+        }
+
+        document.getElementById('start').addEventListener("click", startChangingColor);
+        document.getElementById('stop').addEventListener("click", stopColorGenerator);
+    </script>
+</body>
+</html>
