@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Async Program</title>
+</head>
+
+<body>
+    <h2>This Is our First Date</h2>
+</body>
+<script>
+    console.log("Learn Promise")
+    //Promise is a way to handle asynchronous operations in JavaScript
+    //First Approach to write a promise
+    // let promiseOne = new Promise((resolve, reject)=>{
+
+    //       setTimeout(()=>{
+    //         console.log("This is our first Date in a Cafe")
+    //         // resolve();
+    //         reject();
+    //       }, 1000);
+    // })
+    // promiseOne.then(()=>{
+    //     console.log("First promised is consumed")
+    // }).catch(()=> {
+    //     console.log("Something went wrong with the First Promised");
+    // }).finally(()=> { //Settled
+    //     console.log("Finally block executed after all promises are resolved or rejected.");
+    // });
+
+    //Second Promise Approach
+    // new Promise((resolve, reject)=> {
+    //     setTimeout(()=>{
+    //         console.log("This is our second Promise")
+    //         resolve();
+    //       }, 1000);
+    // }).then(()=> {
+    //     console.log("Second Promise Is Consumed")
+    // }).catch(()=>{
+    //     console.log("Something went wrong with the second Promised");
+    // });
+
+    // const promiseThree = new Promise((resolve, reject)=> {
+    //     let error = true;
+    //     if(!error){
+    //         resolve({username: "Rahul", email:"abcd@gmail.com"});
+    //     }else {
+    //         reject("Something want wrong");
+    //     }
+    // })
+
+    // promiseThree
+    // .then((data)=> {
+    //    console.log("UserData", data);
+    //    return data.username;
+    // }).then((username)=>{
+    //     console.log("Get data from Chaining", username);
+    // }).catch((error)=> {
+    // console.log(error);
+    // });
+
+    // ----------------------Async Await----------------------
+    const promiseFour = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            let error = false;
+            if (!error) {
+                resolve({ username: "Rahul", email: "abcd@gmail.com" });
+            } else {
+                reject("Something want wrong on Promise Four");
+            }
+        }, 1000);
+    });
+
+    const asyncFunction = async () => {
+        try {
+            const res = await promiseFour;
+            console.log("Check promise Four res", res);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    asyncFunction();
+</script>
+
+</html>

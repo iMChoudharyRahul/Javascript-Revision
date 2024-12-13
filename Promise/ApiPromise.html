@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Api Fetch using Promise</title>
+</head>
+
+<body>
+    <h2>Using Promise Fetch Api Data</h2>
+</body>
+<script>
+    // Using fetch with promise to get data from an API
+    const url = 'https://jsonplaceholder.typicode.com/posts';  // API URL from json placeholder
+    // we follow two aaproach first is async await and second using then
+    //using async await 
+    let getAllData = async () => {
+        try {
+            const data = await fetch(url); // 
+            const response = await data.json();
+            console.log("Api Data:", response);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    getAllData();
+
+    //Second Approach is Using Then 
+    fetch(url).then((data) => {
+        return data.json()
+    }).then((data) => {
+        console.log("Api Data using Then:", data);
+    }).catch((error) => {
+        console.log(error);
+    })
+</script>
+
+</html>
