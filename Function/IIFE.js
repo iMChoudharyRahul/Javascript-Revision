@@ -1,5 +1,5 @@
 /**
- * IIFE => (Immediately Invoked Function Expression) is type of function that run as soon as posible after creation.
+ * IIFE => (Immediately Invoked Function Expression) is type of function that run as soon as possible after creation.
  * IIFE in JavaScript is a way to encapsulate code and create a private scope.
  * It is more commonly used for code organization and reducing global scope pollution.
  */
@@ -92,7 +92,7 @@ abc(()=> {
   return x;
 });
 let array = [1, 2, 4, 5, 6] * 2;
-map, fillter, reduce, ==> callback function
+// map, fillter, reduce, ==> callback function
 array.map((item, index, array)=> {
   console.log(item);
   //opration
